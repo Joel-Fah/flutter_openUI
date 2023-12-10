@@ -50,9 +50,17 @@ LinearGradient greenGradient = const LinearGradient(
   end: Alignment.bottomRight,
 );
 
-//Images
-
 // Context Variables
 double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
 double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
+class Day2Component {
+  // Colors
+  static const Color primaryColor = Color(0xFF04c18e);
+  static const Color secondaryColor = Color(0xFFe4f9f2);
+  static const Color backgroundColor = Color(0xFF1b1215);
+
+  // Images
+  static const String d2BgImage = 'assets/images/d2_bg_image.png';
+}

@@ -16,8 +16,11 @@ class Day2Page2 extends StatefulWidget {
 
 class _Day2Page2State extends State<Day2Page2> {
   final TextEditingController nameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final FocusNode _focusNode = FocusNode();
+
+  final FocusNode _focusNodeName = FocusNode();
+  final FocusNode _focusNodePassword = FocusNode();
 
   bool _isHidden = false;
   bool _isFocused = false;
@@ -115,7 +118,7 @@ class _Day2Page2State extends State<Day2Page2> {
                                 label: 'Name',
                                 hintText: 'Name',
                                 controller: nameController,
-                                focusNode: _focusNode,
+                                focusNode: _focusNodeName,
                               ),
                               const Gap(16.0),
                               Form(
@@ -145,9 +148,9 @@ class _Day2Page2State extends State<Day2Page2> {
                                           });
                                         },
                                         child: TextFormField(
-                                          controller: nameController,
+                                          controller: passwordController,
                                           obscureText: _isHidden,
-                                          focusNode: _focusNode,
+                                          focusNode: _focusNodePassword,
                                           keyboardType:
                                               TextInputType.visiblePassword,
                                           style: const TextStyle(

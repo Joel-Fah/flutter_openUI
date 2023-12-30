@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_openui/ui/components/helper.dart';
 import 'package:flutter_openui/ui/pages/home.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter UI 30 Days Challenge',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.urbanistTextTheme()
+        textTheme: GoogleFonts.urbanistTextTheme(),
       ),
       home: const HomePage(),
     );

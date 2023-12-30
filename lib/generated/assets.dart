@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
 
+  static const String fontsMonumentExtendedRegular = 'assets/fonts/MonumentExtended-Regular.otf';
   static const String imagesD2BgImage = 'assets/images/d2_bg_image.png';
+  static const String imagesD3BgImage = 'assets/images/d3_bg_image.png';
 
 }

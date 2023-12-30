@@ -94,6 +94,7 @@ class _Day2Page1State extends State<Day2Page1> {
                           ),
                           child: Form(
                             key: formKey,
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
                             child: Column(
                               children: [
                                 DefaultTextFormField(
@@ -101,6 +102,16 @@ class _Day2Page1State extends State<Day2Page1> {
                                   hintText: 'Email',
                                   controller: emailController,
                                   focusNode: _focusNode,
+                                  validator: (String? value) {
+                                    if (value!.isEmpty) {
+                                      return 'Email is required';
+                                    }
+
+                                    if (!Day2Component.isValidEmail(value)) {
+                                      return 'Invalid email';
+                                    }
+                                    return null;
+                                  },
                                 ),
                                 const Gap(16.0),
                                 DefaultElevatedButton(buttonText: 'Continue', onPressed: () => Get.to(const Day2Page3()),),
@@ -232,11 +243,12 @@ class DefaultTextFormField extends StatefulWidget {
       required this.label,
       required this.hintText,
       required this.controller,
-      required this.focusNode});
+      required this.focusNode, this.validator});
 
   final String label, hintText;
   final TextEditingController controller;
   final FocusNode focusNode;
+  final String? Function(String?)? validator;
 
   @override
   State<DefaultTextFormField> createState() => _DefaultTextFormFieldState();
@@ -289,7 +301,9 @@ class _DefaultTextFormFieldState extends State<DefaultTextFormField> {
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
             errorBorder: InputBorder.none,
+            focusedErrorBorder: InputBorder.none
           ),
+          validator: widget.validator,
         ),
       ),
     );

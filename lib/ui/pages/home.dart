@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_openui/ui/pages/day_1.dart';
 import 'package:flutter_openui/ui/pages/day_2/day_2_1.dart';
+import 'package:flutter_openui/ui/pages/day3/day_3_1.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -30,12 +31,13 @@ class HomePage extends StatelessWidget {
               mainAxisSpacing: 10.0,
             ),
             itemBuilder: (context, index) {
-              final availableDays = [0, 1];
+              final availableDays = [0, 1, 2];
               return GestureDetector(
                 onTap: () {
                   switch (index) {
                     case 0: Get.to(const Day1Page()); break;
                     case 1: Get.to(const Day2Page1()); break;
+                    case 2: Get.to(const Day3Page()); break;
                     default: null;
                   }
                 },
